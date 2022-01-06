@@ -34,7 +34,8 @@ namespace Fiorello.Controllers
                 blogs=_context.Blogs.ToList(),
                 carusels=_context.Carusels.ToList(),
                 categories=_context.Categories.ToList(),
-                productCategories=_context.ProductCategories.Include(c=>c.Category).Include(p=>p.Product).ThenInclude(i=>i.ProductImgs).ToList(),
+                productCategories=_context.ProductCategories.Include(c=>c.Category).Include(p=>p.Product).ThenInclude(i=>i.ProductImgs).Include(b=>b.Product.Discaunt).ToList(),
+               
                
                 
 

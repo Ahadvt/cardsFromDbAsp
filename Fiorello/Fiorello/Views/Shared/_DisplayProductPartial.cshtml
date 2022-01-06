@@ -18,8 +18,18 @@
         </div>
         <div class="price">
             <div class="adCart product">Add to cart</div>
-            <div class="cost">@item.Product.Price$  </div>
-           
+
+            @if (item.Product.DiscauntId == null)
+            {
+                <div class="cost">@item.Product.Price$  </div>
+            }
+            else
+            {
+                <div class="cost">
+                    <span style="text-decoration: line-through;">@item.Product.Price</span>
+            @(item.Product.Price*(100-item.Product.Discaunt.Precenet)/100)$  </div>
+                
+            }
         </div>
     </div>
 }
